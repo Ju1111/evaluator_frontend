@@ -4,7 +4,7 @@ import { GET_BATCHES } from './types'
 
 export const getBatches = () => (dispatch, getState) => {
   const state = getState()
-  const jwt = state.currentUser.jwt
+  const jwt = state.user.jwt
 
   request
     .get(`${baseUrl}/batches`)

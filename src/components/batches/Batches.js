@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import Batch from './Batch'
-import { getBatches } from '../actions/batches'
-import { Redirect, Link } from 'react-router-dom'
-import { userId } from '../jwt'
+import { getBatches } from '../../actions/batches'
+import { Redirect } from 'react-router-dom'
+import { userId } from '../../jwt'
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
 
@@ -50,10 +50,9 @@ class Batches extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  authenticated: state.currentUser !== null,
-  userId: state.currentUser && userId(state.currentUser.jwt),
-  batches: state.batches === null ?
-    null : Object.values(state.batches).sort((a, b) => b.id - a.id)
+  authenticated: state.user !== null,
+  userId: state.user && userId(state.user.jwt),
+  batches: state.batches
 })
 
 export default withRouter(
