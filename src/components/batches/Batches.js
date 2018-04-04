@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom'
 import { userId } from '../../jwt'
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
+import './Batches.css'
 
 class Batches extends PureComponent {
   static PropTypes = {
@@ -14,6 +15,7 @@ class Batches extends PureComponent {
 
   componentWillMount() {
     if (this.props.authenticated) {
+      console.log('Hello');
       this.props.getBatches()
     }
   }
@@ -32,6 +34,7 @@ class Batches extends PureComponent {
       <Redirect to="/login" />
     )
 
+    console.log(batches)
     return (
       <div className="batchPage">
         <button className="newBatch" onClick={ () => history.push('./newbatch') }>
@@ -42,7 +45,7 @@ class Batches extends PureComponent {
         </button>
         <h1>Select a batch to see all students</h1>
         <div className="batch">
-          { batches.map(batch => this.renderBatch(batch)) }
+          lalala
         </div>
       </div>
     )
@@ -51,7 +54,7 @@ class Batches extends PureComponent {
 
 const mapStateToProps = state => ({
   authenticated: state.user !== null,
-  userId: state.user && userId(state.user.jwt),
+  user: state.user,
   batches: state.batches
 })
 
