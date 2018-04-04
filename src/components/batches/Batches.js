@@ -45,9 +45,9 @@ class Batches extends PureComponent {
           logout
         </button>
         <h1>Select a batch to see all students</h1>
-        <div className="batch">
+        <span className="batch">
           { batches.map(batch => this.renderBatch(batch)) }
-        </div>
+        </span>
       </div>
     )
   }

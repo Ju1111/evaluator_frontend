@@ -3,12 +3,9 @@ import PropTypes from 'prop-types'
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
 import { getBatches } from '../../actions/batches'
+import './Batch.css'
 
 class Batch extends PureComponent {
-
-  // componentWillMount() {
-  //     this.props.getBatches()
-  // }
 
   handleClick = () => {
     const { batch, history } = this.props
@@ -18,9 +15,7 @@ class Batch extends PureComponent {
   render() {
     const { batch } = this.props
     return(
-      <div>
-        { batch.batchNumber }
-      </div>
+        <button className="oneBatch">Batch #{ batch.batchNumber }</button>
     )
   }
 
