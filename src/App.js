@@ -3,6 +3,7 @@ import './App.css';
 import LoginPage from './components/login/LoginPage'
 import Batches from './components/batches/Batches'
 import LogoutPage from './components/logout/LogoutPage'
+// import StudentsList from './components/studentslist/Students'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
           <Route exact path="/login" component={ LoginPage } />
           <Route exact path="/logout" component={ LogoutPage } />
           <Route exact path="/batches" component= { Batches } />
+          {/* <Route exact path="/batches/:id" component= { StudentsList } /> */}
           <Route exact path="/" render={ () => <Redirect to="/login" /> } />
         </div>
       </Router>

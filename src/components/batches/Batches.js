@@ -9,20 +9,21 @@ import { connect } from 'react-redux'
 import './Batches.css'
 
 class Batches extends PureComponent {
-  static PropTypes = {
-
-  }
+  // static PropTypes = {
+  //
+  // }
 
   componentWillMount() {
     if (this.props.authenticated) {
-      console.log('Hello');
       this.props.getBatches()
     }
   }
 
   renderBatch = (batch) => {
     return (
-      <Batch />
+      <Batch
+        batch={ batch }
+      />
     )
   }
 
@@ -31,7 +32,7 @@ class Batches extends PureComponent {
     const { authenticated, history, batches } = this.props
 
     if(!authenticated) return (
-      <Redirect to="/login" />
+      <Redirect to="/" />
     )
 
     console.log(batches)
@@ -45,7 +46,7 @@ class Batches extends PureComponent {
         </button>
         <h1>Select a batch to see all students</h1>
         <div className="batch">
-          lalala
+          { batches.map(batch => this.renderBatch(batch)) }
         </div>
       </div>
     )
@@ -54,8 +55,8 @@ class Batches extends PureComponent {
 
 const mapStateToProps = state => ({
   authenticated: state.user !== null,
-  user: state.user,
-  batches: state.batches
+  user: state.user === null ? null:state.user,
+  batches: state.batches === null ? null:Object.values(state.batches).sort((a, b) => b.id - a.id)
 })
 
 export default withRouter(
