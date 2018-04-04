@@ -6,3 +6,5 @@ class Batch extends PureComponent {
 
   }
 }
+
+export default Batch
