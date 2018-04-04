@@ -44,7 +44,7 @@ class Batches extends PureComponent {
         <button className="logout" onClick={ () => history.push('./logout') }>
           logout
         </button>
-        <h1>Select a batch to see all students</h1>
+        <h1>Select a batch to see the attending students</h1>
         <div className="batch">
           { batches.map(batch => this.renderBatch(batch)) }
         </div>
