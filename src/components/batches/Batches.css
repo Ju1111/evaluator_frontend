@@ -4,3 +4,9 @@ button {
   font-size: 0.9em;
   cursor: pointer;
 }
+
+.batch {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
