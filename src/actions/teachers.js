@@ -25,3 +25,7 @@ export const login = (email, password) => (dispatch) => {
     	}
     })
 }
+
+export const logout = () => ({
+  type: USER_LOGOUT
+})
