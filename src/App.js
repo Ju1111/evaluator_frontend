@@ -9,7 +9,6 @@ class App extends Component {
       <Router>
         <div className="App">
           <header className="App-header">
-            <h1 className="App-title">Welcome to the Evaluator</h1>
           </header>
           <Route exact path="/login" component={ LoginPage } />
           <Route exact path="/" render={ () => <Redirect to="/login" /> } />

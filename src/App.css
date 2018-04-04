@@ -8,7 +8,8 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-image: url('trafficlight.jpeg');
+  background-position: center;
   height: 70px;
   padding: 20px;
   color: white;

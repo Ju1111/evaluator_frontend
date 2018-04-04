@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import { login } from '../actions/teachers'
 import LoginForm from './LoginForm'
-// import {Redirect} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 import './LoginPage.css'
 
 class LoginPage extends PureComponent {
@@ -12,12 +12,13 @@ class LoginPage extends PureComponent {
 	}
 
 	render() {
-		// if (this.props.currentUser) return (
-		// 	<Redirect to="/batches" />
-		// )
+		if (this.props.currentUser) return (
+			<Redirect to="/batches" />
+		)
 
 		return (
 			<div className="Login">
+				<h1>Welcome to the EVALUATOR</h1>
 				<h1>Please log in to start evaluating</h1>
 
 				<LoginForm onSubmit={this.handleSubmit} />

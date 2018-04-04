@@ -2,7 +2,7 @@ import * as request from 'superagent'
 import { baseUrl } from '../constants'
 import { USER_LOGIN_SUCCESS, USER_LOGIN_FAILED, USER_LOGOUT } from './types'
 
-export const login = (email, password) => (dispatch) =>
+export const login = (email, password) => (dispatch) => {
 	request
 		.post(`${baseUrl}/logins`)
     .send({ email, password })
@@ -23,3 +23,4 @@ export const login = (email, password) => (dispatch) =>
     		console.error(err)
     	}
     })
+}
