@@ -12,8 +12,6 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <header className="App-header">
-          </header>
           <Route exact path="/login" component={ LoginPage } />
           <Route exact path="/logout" component={ LogoutPage } />
           <Route exact path="/batches" component= { Batches } />

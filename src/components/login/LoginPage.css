@@ -8,6 +8,13 @@
   /* background-color: #99ff99; */
 }
 
+.Header {
+  background-image: url('trafficlight.jpeg');
+  background-position: center;
+  height: 70px;
+  padding: 20px;
+}
+
 input {
   padding: 0.5em;
   border: 0;

@@ -11,6 +11,8 @@ class AddBatch extends PureComponent {
     const { history } = this.props
     return (
       <div className="batchPage">
+        <header className="createHeader">
+        </header>
         <button className="back" onClick={ () => history.push('./batches') }>
           Back to batches
         </button>

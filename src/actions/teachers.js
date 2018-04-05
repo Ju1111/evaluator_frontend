@@ -11,7 +11,7 @@ export const login = (email, password) => (dispatch) => {
         type: USER_LOGIN_SUCCESS,
         payload: result.body
       })
-			console.log(result.body);
+			// console.log(result.body);
     })
     .catch(err => {
     	if (err.status === 400) {

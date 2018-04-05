@@ -4,3 +4,5 @@ export const USER_LOGIN_FAILED = 'USER_LOGIN_FAILED'
 export const USER_LOGOUT = 'USER_LOGOUT'
 
 export const GET_BATCHES = 'GET_BATCHES'
+
+export const GET_STUDENTS = 'GET_STUDENTS'

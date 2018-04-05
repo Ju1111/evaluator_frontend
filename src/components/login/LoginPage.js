@@ -19,6 +19,8 @@ class LoginPage extends PureComponent {
 
 		return (
 			<div className="Login">
+				<header className="Header">
+				</header>
 				<h1>Welcome to the EVALUATOR</h1>
 				<h1>Please log in to start evaluating</h1>
 

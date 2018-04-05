@@ -38,6 +38,8 @@ class Batches extends PureComponent {
     console.log(batches)
     return (
       <div className="batchPage">
+        <header className="batchHeader">
+        </header>
         <button className="newBatch" onClick={ () => history.push('./newbatch') }>
           Create Batch
         </button>

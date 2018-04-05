@@ -10,3 +10,12 @@ button {
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+.batchHeader {
+  background-image: url('classroom.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 90px;
+  padding: 20px;
+  margin-bottom: 0.5em;
+}
