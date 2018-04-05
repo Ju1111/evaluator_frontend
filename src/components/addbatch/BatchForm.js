@@ -2,11 +2,7 @@ import React, {PureComponent} from 'react'
 import './BatchForm.css'
 
 export default class BatchForm extends PureComponent {
-	state = {
-  batchNumber: 0,
-    startDate: 0,
-    endDate: 0
-  }
+	state = { }
 
 	handleSubmit = (e) => {
     console.log(this.state);
