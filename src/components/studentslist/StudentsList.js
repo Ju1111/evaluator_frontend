@@ -9,11 +9,11 @@ import './StudentsList.css'
 
 class StudentsList extends PureComponent {
 
-  componentWillMount() {
-    if (this.props.authenticated) {
-      this.props.getStudents()
-    }
-  }
+  // componentWillMount() {
+  //   if (this.props.authenticated) {
+  //     this.props.getStudents(this.props.match.params.batchId)
+  //   }
+  // }
 
   renderStudent = (student) => {
     return (
@@ -28,10 +28,16 @@ class StudentsList extends PureComponent {
     console.log('hello world');
     const { authenticated, history, batches } = this.props
     // const students = this.props.params.batches.id
+    // console.log(this.props.match.params.batchId);
 
-    console.log(this.props.match.params.batchId);
+    const batchId =  this.props.match.params.batchId
+    let students
 
-    const students =  batches[this.props.match.params.batchId].student
+    for (var i = 0; i < batches.length; i++) {
+      if(batches[i].batchNumber === batchId) {
+        students = batches[i].student
+      }
+    }
 
     if(!authenticated) return (
       <Redirect to="/" />
@@ -49,6 +55,9 @@ class StudentsList extends PureComponent {
           </button>
           <button className="logout" onClick={ () => history.push('/logout') }>
             logout
+          </button>
+          <button onClick={ () => history.push('./newstudent')}>
+            Add a student
           </button>
           <h1>Select a student you want to evaluate</h1>
           <div className="student">
