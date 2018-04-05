@@ -59,7 +59,7 @@ class Batches extends PureComponent {
 const mapStateToProps = state => ({
   authenticated: state.user !== null,
   user: state.user === null ? null:state.user,
-  batches: state.batches === null ? null:Object.values(state.batches).sort((a, b) => b.id - a.id)
+  batches: state.batches === null ? null:Object.values(state.batches).sort((a, b) => b.batchNumber - a.batchNumber)
 })
 
 export default withRouter(
