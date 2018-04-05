@@ -4,7 +4,7 @@ import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
 
 
-class Batch extends PureComponent {
+class Student extends PureComponent {
 
   handleClick = () => {
     console.log('Hellloooooooo');
@@ -14,13 +14,14 @@ class Batch extends PureComponent {
 
   render() {
     const { student } = this.props
+    console.log(student);
     return(
-      <button className="oneStudent" onClick={this.handleClick}>
-        Batch #{ student.lastName }
+      <button className="oneStudent" onClick={ this.handleClick }>
+        Name:{ student }
       </button>
     )
   }
 
 }
 
-export default withRouter(connect(null)(Batch))
+export default withRouter(connect(null)(Student))

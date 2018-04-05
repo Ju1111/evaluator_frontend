@@ -51,7 +51,7 @@ class StudentsList extends PureComponent {
 const mapStateToProps = state => ({
   authenticated: state.user !== null,
   user: state.user === null ? null:state.user,
-  students: state.students === null ? null:Object.values(state.students).sort((a, b) => b.lastName - a.lastName)
+  students: state.batches.student === null ? null:Object.values(state.batches.student).sort((a, b) => b.lastName - a.lastName)
 })
 
 export default withRouter(

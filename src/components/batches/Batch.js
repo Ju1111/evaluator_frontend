@@ -16,8 +16,9 @@ class Batch extends PureComponent {
   render() {
     const { batch } = this.props
     return(
-      <button className="oneBatch" onClick={this.handleClick}>
-        Batch #{ batch.batchNumber }
+      <button className="oneBatch" onClick={ this.handleClick }>
+        Batch #{ batch.batchNumber } <br/><br/>
+        Students: { batch.student.length }
       </button>
     )
   }
