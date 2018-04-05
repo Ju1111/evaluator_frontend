@@ -44,10 +44,10 @@ class StudentsList extends PureComponent {
         <div className="students">
           <header className="studentsHeader">
           </header>
-          <button className="back" onClick={ () => history.push('./batches') }>
+          <button className="back" onClick={ () => history.push('/batches') }>
             Back to batches
           </button>
-          <button className="logout" onClick={ () => history.push('./logout') }>
+          <button className="logout" onClick={ () => history.push('/logout') }>
             logout
           </button>
           <h1>Select a student you want to evaluate</h1>
