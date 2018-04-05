@@ -16,9 +16,10 @@ class Student extends PureComponent {
     const { student } = this.props
     // console.log(student);
     return(
-      <button className="oneStudent" onClick={ this.handleClick }>
-        Name:{ student }
-      </button>
+      <div className="oneStudent" onClick={ this.handleClick }>
+        <img className="studentImage" alt="student" src={ student.picture } />
+        Name:{ student.firstName } { student.lastName }
+      </div>
     )
   }
 
