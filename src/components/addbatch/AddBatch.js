@@ -15,8 +15,8 @@ class AddBatch extends PureComponent {
     const { history, postBatch } = this.props
 
     if (this.props.addBatch.success) return (
-      <div>
-  			<h2>You have sucessfuly created a new batch. Please press the button to go back to the batches overview.</h2>
+      <div className="added">
+  			<h2>You have sucessfuly created a new batch. <br/>Please press the button to go back to the batches overview.</h2>
         <button className="back" onClick={ () => history.push('./batches') }>
           Back to batches
         </button>

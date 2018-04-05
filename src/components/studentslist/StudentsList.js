@@ -25,7 +25,13 @@ class StudentsList extends PureComponent {
 
   render() {
 
-    const { authenticated, history, students } = this.props
+    console.log('hello world');
+    const { authenticated, history, batches } = this.props
+    // const students = this.props.params.batches.id
+
+    console.log(this.props.match.params.batchId);
+
+    const students =  batches[this.props.match.params.batchId].student
 
     if(!authenticated) return (
       <Redirect to="/" />
@@ -38,6 +44,9 @@ class StudentsList extends PureComponent {
         <div className="students">
           <header className="studentsHeader">
           </header>
+          <button className="back" onClick={ () => history.push('./batches') }>
+            Back to batches
+          </button>
           <button className="logout" onClick={ () => history.push('./logout') }>
             logout
           </button>
@@ -53,7 +62,7 @@ class StudentsList extends PureComponent {
 
 const mapStateToProps = state => ({
   authenticated: state.user !== null,
-  students: state.students
+  batches: state.batches
 })
 
 export default withRouter(
