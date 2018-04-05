@@ -29,7 +29,7 @@ export const addBatch = (data) => (dispatch, getState) => {
     .then(result => {
       dispatch({
         type: BATCH_SUCCESS,
-        payload: result.body
+        // payload: result.body
       })
     })
     .catch(err => {
