@@ -28,7 +28,7 @@ class AddStudent extends PureComponent {
     return (
       <div className="addStudent">
         <button className="back" onClick={ () => history.push('./batches') }>
-          Back to batches
+          Back to student overview
         </button>
         <button className="logout" onClick={ () => history.push('./logout') }>
           logout

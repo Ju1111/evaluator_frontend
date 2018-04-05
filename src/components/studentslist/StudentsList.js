@@ -48,8 +48,6 @@ class StudentsList extends PureComponent {
     if(students) {
       return (
         <div className="students">
-          <header className="studentsHeader">
-          </header>
           <button className="back" onClick={ () => history.push('/batches') }>
             Back to batches
           </button>
@@ -58,6 +56,9 @@ class StudentsList extends PureComponent {
           </button>
           <button onClick={ () => history.push('./newstudent')}>
             Add a student
+          </button>
+          <button onClick={ () => history.push('./question')}>
+            Ask a question
           </button>
           <h1>Select a student you want to evaluate</h1>
           <div className="student">

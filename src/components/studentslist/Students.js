@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 // import PropTypes from 'prop-types'
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
-
+import './Students.css'
 
 class Student extends PureComponent {
 
@@ -18,7 +18,9 @@ class Student extends PureComponent {
     return(
       <div className="oneStudent" onClick={ this.handleClick }>
         <img className="studentImage" alt="student" src={ student.picture } />
-        Name:{ student.firstName } { student.lastName }
+        <div className="studentName">
+          { student.firstName } { student.lastName }
+        </div>
       </div>
     )
   }
