@@ -26,20 +26,20 @@ export default class BatchForm extends PureComponent {
             <h3>Please insert first name, last name and a link to a picture of the student</h3>
   					<label htmlFor="firstName">First Name</label>
   					<input type="text" name="firstName" id="firstName" value={
-  						this.state.batchNumber || ''
+  						this.state.firstName || ''
   					} onChange={ this.handleChange } />
   				</div>
 
   				<div>
   					<label htmlFor="lastName">Last Name</label>
   					<input type="text" name="lastName" id="lastName" value={
-  						this.state.startDate || ''
+  						this.state.lastName || ''
   					} onChange={ this.handleChange } />
   				</div>
   				<div>
   					<label htmlFor="picture">Picture</label>
   					<input type="text" name="picture" id="picture" value={
-  						this.state.endDate || ''
+  						this.state.picture || ''
   					} onChange={ this.handleChange } />
   				</div>
   				<button type="submit">Add Student</button>
