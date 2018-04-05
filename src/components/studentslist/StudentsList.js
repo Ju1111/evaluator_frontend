@@ -34,7 +34,7 @@ class StudentsList extends PureComponent {
     let students
 
     for (var i = 0; i < batches.length; i++) {
-      if(batches[i].batchNumber === batchId) {
+      if(batches[i].id === Number(batchId)) {
         students = batches[i].student
       }
     }
