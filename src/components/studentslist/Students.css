@@ -1,0 +1,19 @@
+.oneStudent {
+  border: 1px solid #777;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 1em;
+  width: 30%;
+  margin: 1.5em;
+  cursor: pointer;
+  /* box-shadow: 0 0 50px green; */
+}
+
+.studentImage {
+  width: 100%;
+  height: 20%;
+}
+
+.studentName {
+  font-size: 1.5em;
+}

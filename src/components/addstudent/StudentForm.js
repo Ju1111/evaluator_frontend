@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react'
+import './StudentForm.css'
 
 export default class BatchForm extends PureComponent {
 	state = { }
@@ -24,24 +25,24 @@ export default class BatchForm extends PureComponent {
   				<div>
             <h3>Please insert first name, last name and a link to a picture of the student</h3>
   					<label htmlFor="firstName">First Name</label>
-  					<input type="number" name="batchNumber" id="batchNumber" value={
-  						this.state.batchNumber || ''
+  					<input type="text" name="firstName" id="firstName" value={
+  						this.state.firstName || ''
   					} onChange={ this.handleChange } />
   				</div>
 
   				<div>
-  					<label htmlFor="startDate">Start Date</label>
-  					<input type="string" name="startDate" id="startDate" value={
-  						this.state.startDate || ''
+  					<label htmlFor="lastName">Last Name</label>
+  					<input type="text" name="lastName" id="lastName" value={
+  						this.state.lastName || ''
   					} onChange={ this.handleChange } />
   				</div>
   				<div>
-  					<label htmlFor="endDate">End Date</label>
-  					<input type="string" name="endDate" id="endDate" value={
-  						this.state.endDate || ''
+  					<label htmlFor="picture">Picture</label>
+  					<input type="text" name="picture" id="picture" value={
+  						this.state.picture || ''
   					} onChange={ this.handleChange } />
   				</div>
-  				<button type="submit">Add Batch</button>
+  				<button type="submit">Add Student</button>
   			</form>
       </div>
 		)

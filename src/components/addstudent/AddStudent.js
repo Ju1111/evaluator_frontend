@@ -6,7 +6,8 @@ import StudentForm from './StudentForm'
 class AddStudent extends PureComponent {
 
   handleSubmit = (data) => {
-		this.props.postStudent(data)
+    const batchId =  this.props.match.params.batchId
+		this.props.postStudent(batchId, data)
 	}
 
   render() {
@@ -16,10 +17,10 @@ class AddStudent extends PureComponent {
     if (this.props.addStudent.success) return (
       <div className="added">
   			<h2>You have sucessfuly added a student. <br/>Do you want to add another student or get back to the overview?</h2>
-        <button className="back" onClick={ () => history.push('./batches') }>
+        <button className="back" onClick={ () => history.push('./newstudent') }>
           Add another student
         </button>
-        <button className="back" onClick={ () => history.push('./batches') }>
+        <button className="back" onClick={ () => history.push('./students') }>
           Back to overview
         </button>
       </div>
@@ -27,10 +28,10 @@ class AddStudent extends PureComponent {
 
     return (
       <div className="addStudent">
-        <button className="back" onClick={ () => history.push('./batches') }>
-          Back to batches
+        <button className="back" onClick={ () => history.push('./students') }>
+          Back to student overview
         </button>
-        <button className="logout" onClick={ () => history.push('./logout') }>
+        <button className="logout" onClick={ () => history.push('/logout') }>
           logout
         </button>
         <StudentForm onSubmit={ this.handleSubmit } />
