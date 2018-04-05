@@ -43,8 +43,22 @@ class StudentsList extends PureComponent {
       <Redirect to="/" />
     )
 
-    console.log(students)
-    if(!students) return null
+    if(!students) {
+      return (
+        <div className="students">
+          <button className="back" onClick={ () => history.push('/batches') }>
+            Back to batches
+          </button>
+          <button className="logout" onClick={ () => history.push('/logout') }>
+            logout
+          </button>
+          <button onClick={ () => history.push('./newstudent')}>
+            Add a student
+          </button>
+          <h3>This batch has no students yet. Feeling like adding some?</h3>
+        </div>
+      )
+    }
     if(students) {
       return (
         <div className="students">
