@@ -1,18 +1,18 @@
-import { STUDENT_SUCCESS, STUDENT_FAIL } from '../actions/types'
+import { ADD_EVALUATION_SUCCESS, ADD_EVALUATION_FAIL } from '../actions/types'
 
 export default function (state = {}, {type, payload}) {
 	switch(type) {
-    case STUDENT_SUCCESS:
+    case ADD_EVALUATION_SUCCESS:
       return {
         success: true
       }
 
-    case STUDENT_FAIL:
+    case ADD_EVALUATION_FAIL:
       return {
         error: payload
       }
 
-		default:
+    default:
       return state
-	}
+  }
 }
