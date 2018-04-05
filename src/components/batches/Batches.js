@@ -19,10 +19,11 @@ class Batches extends PureComponent {
     }
   }
 
-  renderBatch = (batch) => {
+  renderBatch = (batch, index) => {
     return (
       <Batch
         batch={ batch }
+        key={ index }
       />
     )
   }

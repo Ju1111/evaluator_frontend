@@ -25,8 +25,4 @@ class Batch extends PureComponent {
 
 }
 
-// const mapStateToProps = state => ({
-//   batch: state.batches[0]
-// })
-
 export default withRouter(connect(null)(Batch))

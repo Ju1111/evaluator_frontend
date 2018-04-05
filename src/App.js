@@ -3,7 +3,7 @@ import './App.css';
 import LoginPage from './components/login/LoginPage'
 import Batches from './components/batches/Batches'
 import LogoutPage from './components/logout/LogoutPage'
-import StudentsList from './components/studentslist/Students'
+import StudentsList from './components/studentslist/StudentsList'
 import AddBatch from './components/addbatch/AddBatch'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 

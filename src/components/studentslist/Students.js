@@ -14,7 +14,7 @@ class Student extends PureComponent {
 
   render() {
     const { student } = this.props
-    console.log(student);
+    // console.log(student);
     return(
       <button className="oneStudent" onClick={ this.handleClick }>
         Name:{ student }

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 // import PropTypes from 'prop-types'
-import Student from './Student'
+import Student from './Students'
 import { getStudents } from '../../actions/students'
 import { Redirect } from 'react-router-dom'
 import { withRouter } from 'react-router'
@@ -15,7 +15,7 @@ class StudentsList extends PureComponent {
     }
   }
 
-  renderBatch = (student) => {
+  renderStudent = (student) => {
     return (
       <Student
         student={ student }
@@ -32,26 +32,28 @@ class StudentsList extends PureComponent {
     )
 
     console.log(students)
-    return (
-      <div className="students">
-        <header className="studentsHeader">
-        </header>
-        <button className="logout" onClick={ () => history.push('./logout') }>
-          logout
-        </button>
-        <h1>Select a student you want to evaluate</h1>
-        <div className="student">
-          { students.map(student => this.renderStudent(student)) }
+    if(!students) return null
+    if(students) {
+      return (
+        <div className="students">
+          <header className="studentsHeader">
+          </header>
+          <button className="logout" onClick={ () => history.push('./logout') }>
+            logout
+          </button>
+          <h1>Select a student you want to evaluate</h1>
+          <div className="student">
+            { students.map(student => this.renderStudent(student)) }
+          </div>
         </div>
-      </div>
-    )
+      )
+    }
   }
 }
 
 const mapStateToProps = state => ({
   authenticated: state.user !== null,
-  user: state.user === null ? null:state.user,
-  students: state.batches.student === null ? null:Object.values(state.batches.student).sort((a, b) => b.lastName - a.lastName)
+  students: state.students
 })
 
 export default withRouter(

@@ -1,8 +1,8 @@
 .studentsHeader {
   background-image: url('students.jpg');
-  background-position: bottom;
+  background-position: center;
   background-size: cover;
-  height: 90px;
+  height: 180px;
   padding: 20px;
   margin-bottom: 0.5em;
 }
