@@ -7,7 +7,7 @@ import './AddBatch.css'
 class AddBatch extends PureComponent {
 
   handleSubmit = (data) => {
-		this.props.postBatch(data.batchNumber, data.startDate, data.endDate)
+		this.props.postBatch(data)
 	}
 
   render() {
