@@ -18,19 +18,39 @@ class StudentsList extends PureComponent {
 
   render() {
 
-    console.log('hello world');
     const { authenticated, history, batches } = this.props
-    // const students = this.props.params.batches.id
-    // console.log(this.props.match.params.batchId);
 
     const batchId =  this.props.match.params.batchId
+
     let students
+    let evaluationColour
+
+    let greenStudents = []
+    let yellowStudents = []
+    let redStudents = []
 
     for (var i = 0; i < batches.length; i++) {
       if(batches[i].id === Number(batchId)) {
         students = batches[i].student
       }
     }
+
+    for (var e = 0; e < students.length; e++) {
+      evaluationColour = students[e].evaluation[0].colour
+      if (evaluationColour === 'green') {
+        greenStudents.push(students[e])
+      } else if (evaluationColour === 'yellow') {
+        yellowStudents.push(students[e])
+      } else {
+        redStudents.push(students[e])
+      }
+    }
+
+    //calculate percentage of green, yellow and red Students
+
+    let percentageGreen = (greenStudents.length * 100)/students.length
+    let percentageYellow = (yellowStudents.length * 100)/students.length
+    let percentageRed = (redStudents.length * 100)/students.length
 
     if(!authenticated) return (
       <Redirect to="/" />
@@ -67,6 +87,17 @@ class StudentsList extends PureComponent {
           <button onClick={ () => history.push('./question')}>
             Ask a question
           </button>
+          <div>
+            <div className="green">
+              { percentageGreen }%
+            </div>
+            <div className="yellow">
+              { percentageYellow }%
+            </div>
+            <div className="red">
+              { percentageRed }%
+            </div>
+          </div>
           <h1>Select a student you want to evaluate</h1>
           <div className="student">
             { students.map(student => this.renderStudent(student)) }

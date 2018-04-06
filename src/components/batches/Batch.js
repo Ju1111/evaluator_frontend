@@ -8,7 +8,6 @@ import './Batch.css'
 class Batch extends PureComponent {
 
   handleClick = () => {
-    console.log('Hellloooooooo');
     const { batch, history } = this.props
     history.push(`./batches/${batch.id}/students`)
   }

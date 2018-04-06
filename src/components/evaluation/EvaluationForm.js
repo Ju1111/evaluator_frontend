@@ -51,13 +51,11 @@ class EvaluationForm extends PureComponent {
       }
     }
 
-    console.log(students);
-
     let student
 
-    for (var i = 0; i < students.length; i++) {
-      if(students[i].id === Number(studentId)) {
-        student = students[i]
+    for (var s = 0; s < students.length; s++) {
+      if(students[s].id === Number(studentId)) {
+        student = students[s]
       }
     }
 
