@@ -7,7 +7,6 @@ import './Students.css'
 class Student extends PureComponent {
 
   handleClick = () => {
-    console.log('Hellloooooooo');
     const { student, history } = this.props
     history.push(`./students/${student.id}/evaluations`)
   }
