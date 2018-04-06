@@ -16,11 +16,9 @@ class StudentsList extends PureComponent {
     )
   }
 
-  render() {
-
-    const { authenticated, history, batches } = this.props
-
+  studentColours = () => {
     const batchId =  this.props.match.params.batchId
+    const { batches } = this.props
 
     let students
     let evaluationColour
@@ -46,35 +44,66 @@ class StudentsList extends PureComponent {
       }
     }
 
+    return {
+      greenStudents,
+      yellowStudents,
+      redStudents
+    }
+
+  }
+
+percentageCalc = () => {
+    const colour = this.studentColours()
+    const batchId =  this.props.match.params.batchId
+    const { batches } = this.props
+    const students = batches.filter(batch => batch.id === Number(batchId))[0].student
 
     //calculate percentage of green, yellow and red Students
-    let percentageGreen = (greenStudents.length * 100)/students.length
-    let percentageYellow = (yellowStudents.length * 100)/students.length
-    let percentageRed = (redStudents.length * 100)/students.length
+    let percentageGreen = (colour.greenStudents.length * 100)/students.length
+    let percentageYellow = (colour.yellowStudents.length * 100)/students.length
+    let percentageRed = (colour.redStudents.length * 100)/students.length
 
-    let askQuestion = () => {
-      //get random number between 0 and 1
-      const random = Math.random()
-      //53% chance for red students to get picked
-      console.log('hello');
-      if (random < 0.53) {
-        let student = redStudents[Math.floor(Math.random() * redStudents.length)]
-        return student.firstName
-      }
-      //check the next 28% -> total 81% percent
-      else if (random < 0.81) {
-        let student = yellowStudents[Math.floor(Math.random() * yellowStudents.length)]
-        return student.firstName
-      }
-      else {
-        let student = greenStudents[Math.floor(Math.random() * greenStudents.length)]
-        return student.firstName
-      }
+    return {
+      percentageGreen,
+      percentageYellow,
+      percentageRed
     }
+  }
+
+  askQuestion = () => {
+
+    const colour = this.studentColours()
+
+    //get random number between 0 and 1
+    const random = Math.random()
+    //53% chance for red students to get picked
+    console.log('hello');
+    if (random < 0.53) {
+      let student = colour.redStudents[Math.floor(Math.random() * colour.redStudents.length)]
+      window.alert(student.firstName)
+    }
+    //check the next 28% -> total 81% percent
+    else if (random < 0.81) {
+      let student = colour.yellowStudents[Math.floor(Math.random() * colour.yellowStudents.length)]
+      window.alert(student.firstName)
+    }
+    else {
+      let student = colour.greenStudents[Math.floor(Math.random() * colour.greenStudents.length)]
+      window.alert(student.firstName)
+    }
+  }
+
+  render() {
+
+    const { authenticated, history, batches } = this.props
+    const batchId =  this.props.match.params.batchId
+    const students = batches.filter(batch => batch.id === Number(batchId))[0].student
 
     if(!authenticated) return (
       <Redirect to="/" />
     )
+
+    const percentages = this.percentageCalc()
 
     if(!students) {
       return (
@@ -109,13 +138,13 @@ class StudentsList extends PureComponent {
           </button>
           <div>
             <div className="green">
-              { percentageGreen }%
+              { percentages.percentageGreen }%
             </div>
             <div className="yellow">
-              { percentageYellow }%
+              { percentages.percentageYellow }%
             </div>
             <div className="red">
-              { percentageRed }%
+              { percentages.percentageRed }%
             </div>
           </div>
           <h1>Select a student you want to evaluate</h1>
