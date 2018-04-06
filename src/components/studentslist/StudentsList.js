@@ -18,12 +18,10 @@ class StudentsList extends PureComponent {
 
   render() {
 
-    console.log('hello world');
     const { authenticated, history, batches } = this.props
-    // const students = this.props.params.batches.id
-    // console.log(this.props.match.params.batchId);
 
     const batchId =  this.props.match.params.batchId
+
     let students
 
     for (var i = 0; i < batches.length; i++) {
@@ -31,6 +29,13 @@ class StudentsList extends PureComponent {
         students = batches[i].student
       }
     }
+
+    let evaluationColour
+
+    for (var e = 0; e < students.length; e++) {
+      evaluationColour = students[e].evaluation[0].colour
+    }
+
 
     if(!authenticated) return (
       <Redirect to="/" />
