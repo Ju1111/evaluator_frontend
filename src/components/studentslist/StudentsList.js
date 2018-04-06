@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react'
-// import PropTypes from 'prop-types'
 import Student from './Students'
 import { getStudents } from '../../actions/students'
 import { Redirect } from 'react-router-dom'
@@ -8,12 +7,6 @@ import { connect } from 'react-redux'
 import './StudentsList.css'
 
 class StudentsList extends PureComponent {
-
-  // componentWillMount() {
-  //   if (this.props.authenticated) {
-  //     this.props.getStudents(this.props.match.params.batchId)
-  //   }
-  // }
 
   renderStudent = (student) => {
     return (
