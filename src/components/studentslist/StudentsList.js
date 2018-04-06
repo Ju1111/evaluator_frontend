@@ -35,22 +35,43 @@ class StudentsList extends PureComponent {
       }
     }
 
-    for (var e = 0; e < students.length; e++) {
-      evaluationColour = students[e].evaluation[0].colour
-      if (evaluationColour === 'green') {
-        greenStudents.push(students[e])
-      } else if (evaluationColour === 'yellow') {
-        yellowStudents.push(students[e])
-      } else {
-        redStudents.push(students[e])
+    if(students.evaluation) {
+      for (var e = 0; e < students.length; e++) {
+        evaluationColour = students[e].evaluation[0].colour
+        if (evaluationColour === 'green') {
+          greenStudents.push(students[e])
+        } else if (evaluationColour === 'yellow') {
+          yellowStudents.push(students[e])
+        } else {
+          redStudents.push(students[e])
+        }
       }
     }
 
     //calculate percentage of green, yellow and red Students
-
     let percentageGreen = (greenStudents.length * 100)/students.length
     let percentageYellow = (yellowStudents.length * 100)/students.length
     let percentageRed = (redStudents.length * 100)/students.length
+
+    let askQuestion = () => {
+      //get random number between 0 and 1
+      const random = Math.random()
+      //53% chance for red students to get picked
+      console.log('hello');
+      if (random < 0.53) {
+        let student = redStudents[Math.floor(Math.random() * redStudents.length)]
+        return student.firstName
+      }
+      //check the next 28% -> total 81% percent
+      else if (random < 0.81) {
+        let student = yellowStudents[Math.floor(Math.random() * yellowStudents.length)]
+        return student.firstName
+      }
+      else {
+        let student = greenStudents[Math.floor(Math.random() * greenStudents.length)]
+        return student.firstName
+      }
+    }
 
     if(!authenticated) return (
       <Redirect to="/" />
@@ -84,7 +105,7 @@ class StudentsList extends PureComponent {
           <button onClick={ () => history.push('./newstudent')}>
             Add a student
           </button>
-          <button onClick={ () => history.push('./question')}>
+          <button onClick={ this.askQuestion }>
             Ask a question
           </button>
           <div>
