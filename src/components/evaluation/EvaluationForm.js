@@ -4,12 +4,13 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { withRouter } from 'react-router'
 import './EvaluationForm.css'
+import Evaluation from './Evaluation'
 
 class EvaluationForm extends PureComponent {
 	state = { }
 
-	handleSubmit = (e) => {
-    e.preventDefault()
+	handleSubmit = (event) => {
+    event.preventDefault()
 
     console.log(this.state)
     this.props.onSubmit(this.state)
@@ -25,6 +26,14 @@ class EvaluationForm extends PureComponent {
     this.setState({
       [name]: value
     })
+  }
+
+  renderEvaluation = (evaluation) => {
+    return (
+      <Evaluation
+        evaluation={ evaluation }
+      />
+    )
   }
 
 	render() {
@@ -60,11 +69,12 @@ class EvaluationForm extends PureComponent {
       <div className="addEvaluation">
   			<form>
           <h3>Happy Evaluating</h3>
+          <h4>{ student.firstName } { student.lastName } is waiting for an evaluation!</h4>
           <div className="studentEvaluation">
             <img alt="student" className="picture" src={ student.picture } />
-            <div className="student">
-              { student.firstName } { student.lastName }
-            </div>
+          </div>
+          <div className="evaluations">
+            { student.evaluation.map(evaluation => this.renderEvaluation(evaluation)) }
           </div>
           <div>
   					<label htmlFor="date">Date</label>

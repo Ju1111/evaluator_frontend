@@ -13,10 +13,10 @@
 }
 
 .picture {
-  width: 60%;
+  width: 80%;
   height: 10%;
 }
 
-.student {
-  font-size: 1.5em;
+h4 {
+  color: red;
 }
