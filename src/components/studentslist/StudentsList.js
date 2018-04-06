@@ -23,6 +23,11 @@ class StudentsList extends PureComponent {
     const batchId =  this.props.match.params.batchId
 
     let students
+    let evaluationColour
+
+    let greenStudents = []
+    let yellowStudents = []
+    let redStudents = []
 
     for (var i = 0; i < batches.length; i++) {
       if(batches[i].id === Number(batchId)) {
@@ -30,12 +35,18 @@ class StudentsList extends PureComponent {
       }
     }
 
-    let evaluationColour
-
     for (var e = 0; e < students.length; e++) {
       evaluationColour = students[e].evaluation[0].colour
+      if (evaluationColour === 'green') {
+        greenStudents.push(students[e])
+      } else if (evaluationColour === 'yellow') {
+        yellowStudents.push(students[e])
+      } else {
+        redStudents.push(students[e])
+      }
     }
 
+    console.log(greenStudents);
 
     if(!authenticated) return (
       <Redirect to="/" />
