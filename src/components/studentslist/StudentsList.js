@@ -46,7 +46,11 @@ class StudentsList extends PureComponent {
       }
     }
 
-    console.log(greenStudents);
+    //calculate percentage of green, yellow and red Students
+
+    let percentageGreen = (greenStudents.length * 100)/students.length
+    let percentageYellow = (yellowStudents.length * 100)/students.length
+    let percentageRed = (redStudents.length * 100)/students.length
 
     if(!authenticated) return (
       <Redirect to="/" />
@@ -83,6 +87,17 @@ class StudentsList extends PureComponent {
           <button onClick={ () => history.push('./question')}>
             Ask a question
           </button>
+          <div>
+            <div className="green">
+              { percentageGreen }%
+            </div>
+            <div className="yellow">
+              { percentageYellow }%
+            </div>
+            <div className="red">
+              { percentageRed }%
+            </div>
+          </div>
           <h1>Select a student you want to evaluate</h1>
           <div className="student">
             { students.map(student => this.renderStudent(student)) }

@@ -6,3 +6,21 @@
   padding: 20px;
   margin-bottom: 0.5em;
 }
+
+.green {
+  color: lightgreen;
+  display: inline-block;
+  margin: 1em;
+}
+
+.yellow {
+  color: yellow;
+  display: inline-block;
+  margin: 1em;
+}
+
+.red {
+  color: red;
+  display: inline-block;
+  margin: 1em;
+}
