@@ -59,14 +59,14 @@ class EvaluationForm extends PureComponent {
 		return (
       <div className="addEvaluation">
   			<form>
-  				<div>
-            <h3>Happy Evaluating</h3>
-            <div className="studentEvaluation">
-              <img alt="student" className="picture" src={ student.picture } />
-              <div className="student">
-                { student.firstName } { student.lastName }
-              </div>
+          <h3>Happy Evaluating</h3>
+          <div className="studentEvaluation">
+            <img alt="student" className="picture" src={ student.picture } />
+            <div className="student">
+              { student.firstName } { student.lastName }
             </div>
+          </div>
+          <div>
   					<label htmlFor="date">Date</label>
   					<input type="date" name="date" id="date" placeholder="leave blank for today"value={
   						this.state.date || ''
