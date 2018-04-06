@@ -6,7 +6,7 @@ import LogoutPage from './components/logout/LogoutPage'
 import StudentsList from './components/studentslist/StudentsList'
 import AddBatch from './components/addbatch/AddBatch'
 import AddStudent from './components/addstudent/AddStudent'
-import AddEvaluation from './components/evaluation/Evaluation'
+import AddEvaluation from './components/evaluation/AddEvaluation'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
 class App extends Component {

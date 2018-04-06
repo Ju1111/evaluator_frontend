@@ -1,37 +1,36 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { addEvaluation } from '../../actions/evaluations'
-import EvaluationForm from './EvaluationForm'
+import green from './heart_green.png'
+import yellow from './heart_orange.png'
+import red from './heart_red.png'
+import './Evaluation.css'
 
-class AddEvaluation extends PureComponent {
+class Evaluation extends PureComponent {
 
-  handleSubmit = (data) => {
-    const batchId =  this.props.match.params.batchId
-    const studentId = this.props.match.params.studentId
-		this.props.postEvaluation(batchId, studentId, data)
-	}
+  displayColour = () => {
+    const { evaluation } = this.props
+
+    switch(evaluation.colour) {
+      case 'green':
+        return green
+      case 'yellow':
+        return yellow
+      case 'red':
+        return red
+      default:
+        return null
+    }
+  }
 
   render() {
 
-    const { history } = this.props
-    const batch = this.props.match.params.batchId
-
-    return (
-      <div className="addEvaluation">
-        <button className="back" onClick={ () => history.push(`/batches/${batch}/students`) }>
-          Back to student overview
-        </button>
-        <EvaluationForm onSubmit={ this.handleSubmit } />
-        <p style={{color:'red'}}>{ this.props.addEvaluation.error }</p>
+    return(
+      <div className="evaluation">
+        <img alt="evaluationcolour" src={ this.displayColour() } />
       </div>
     )
   }
+
 }
 
-const mapStateToProps = function (state) {
-	return {
-		addEvaluation: state.addEvaluation
-	}
-}
-
-export default connect(mapStateToProps, { postEvaluation: addEvaluation })(AddEvaluation)
+export default connect(null)(Evaluation)
