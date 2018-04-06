@@ -35,18 +35,17 @@ class StudentsList extends PureComponent {
       }
     }
 
-    if(students.evaluation) {
-      for (var e = 0; e < students.length; e++) {
-        evaluationColour = students[e].evaluation[0].colour
-        if (evaluationColour === 'green') {
-          greenStudents.push(students[e])
-        } else if (evaluationColour === 'yellow') {
-          yellowStudents.push(students[e])
-        } else {
-          redStudents.push(students[e])
-        }
+    for (var e = 0; e < students.length; e++) {
+      evaluationColour = students[e].evaluation[0].colour
+      if (evaluationColour === 'green') {
+        greenStudents.push(students[e])
+      } else if (evaluationColour === 'yellow') {
+        yellowStudents.push(students[e])
+      } else {
+        redStudents.push(students[e])
       }
     }
+
 
     //calculate percentage of green, yellow and red Students
     let percentageGreen = (greenStudents.length * 100)/students.length
