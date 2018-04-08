@@ -34,13 +34,19 @@ class StudentsList extends PureComponent {
     }
 
     for (var e = 0; e < students.length; e++) {
-      evaluationColour = students[e].evaluation[0].colour
-      if (evaluationColour === 'green') {
-        greenStudents.push(students[e])
-      } else if (evaluationColour === 'yellow') {
-        yellowStudents.push(students[e])
-      } else {
+      console.log(students[e].evaluation);
+      if (students[e].evaluation.length === 0) {
         redStudents.push(students[e])
+      }
+      else {
+        evaluationColour = students[e].evaluation[0].colour
+        if (evaluationColour === 'green') {
+          greenStudents.push(students[e])
+        } else if (evaluationColour === 'yellow') {
+          yellowStudents.push(students[e])
+        } else {
+          redStudents.push(students[e])
+        }
       }
     }
 
